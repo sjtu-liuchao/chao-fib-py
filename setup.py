@@ -1,3 +1,4 @@
+# trigger build (29-1-2023)
 from setuptools import find_packages, setup
 
 with open("README.md", "r") as fh:
@@ -5,14 +6,20 @@ with open("README.md", "r") as fh:
 
 setup(
     name="chao_fib_py",
-    version="0.0.1",
+    version="0.0.3",
     author="Chao Liu",
     author_email="chaoliu.is@gmail.com",
     description="Calculates a Fibonacci number",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sjtu-liuchao/chao-fib-py",
-    install_requires=[],
+    install_requires=[
+        "PyYAML>=4.1.2",
+        "dill>=0.2.8"
+    ],
+    extras_require={
+     'server': ["Flask>=1.0.0"]
+    },
     packages=find_packages(exclude=("tests",)),
     classifiers=[
         "Development Status :: 4 - Beta",
