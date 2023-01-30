@@ -20,6 +20,11 @@ class RecurringFibNumberTest(TestCase):
     def test_twenty(self):
         self.assertEqual(6765, recurring_fibonacci_number(number=20))
 
+    def test_negative(self):
+        with self.assertRaises(ValueError) as raised_error: 
+            recurring_fibonacci_number(number=-1)
+        self.assertEqual("Fibonacci has to be equal or above zero",str(raised_error.exception))
+
 
 if __name__ == "__main__":
     main()
